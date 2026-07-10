@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AdminDashboard = ({ user }) => {
+const AdminDashboard = ({ user, onArticulosUpdated }) => {
   const [articulos, setArticulos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -99,7 +99,8 @@ const AdminDashboard = ({ user }) => {
 
       setSuccess(formId ? '🎉 Artículo actualizado con éxito.' : '🎉 Artículo creado con éxito.');
       resetForm();
-      fetchArticulos();
+      await fetchArticulos();
+      onArticulosUpdated?.();
     } catch (err) {
       console.error(err);
       setError(err.message || 'Error al procesar la solicitud.');
@@ -146,7 +147,8 @@ const AdminDashboard = ({ user }) => {
       }
 
       setSuccess('🗑 Artículo eliminado exitosamente.');
-      fetchArticulos();
+      await fetchArticulos();
+      onArticulosUpdated?.();
     } catch (err) {
       console.error(err);
       setError(err.message || 'Error al eliminar el producto.');

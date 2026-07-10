@@ -123,6 +123,10 @@ const App = () => {
     fetchCatalog();
   };
 
+  const handleArticulosUpdated = () => {
+    fetchCatalog();
+  };
+
   // Filtros
   const getCategories = () => {
     const categories = ['Todas', 'Térmica', 'Deportiva', 'Vidrio'];
@@ -261,7 +265,7 @@ const App = () => {
             {/* Ruta Protegida: Admin Dashboard */}
             <Route 
               path="/admin" 
-              element={user && user.rol === 'admin' ? <AdminDashboard user={user} /> : <Navigate to="/login" />} 
+              element={user && user.rol === 'admin' ? <AdminDashboard user={user} onArticulosUpdated={handleArticulosUpdated} /> : <Navigate to="/login" />} 
             />
             
             <Route path="*" element={<Navigate to="/" />} />
