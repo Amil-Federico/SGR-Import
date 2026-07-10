@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --sgr-bg: #ffffff;
+  --sgr-bg-alt: #f8f9fa;
+  --sgr-dark: #0b2240;
+  --sgr-dark-rgb: 11, 34, 64;
+  --sgr-dark-accent: #172554;
+  --sgr-green: #10b981;
+  --sgr-green-rgb: 16, 185, 129;
+  --sgr-green-hover: #059669;
+  --sgr-text: #1e293b;
+  --sgr-text-muted: #64748b;
+  --sgr-border: #e2e8f0;
+  --sgr-card-shadow: 0 10px 30px -10px rgba(11, 34, 64, 0.1);
+  --sgr-card-shadow-hover: 0 20px 40px -5px rgba(11, 34, 64, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--sgr-bg-alt);
+  color: var(--sgr-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sgr-bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sgr-text-muted);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sgr-dark);
+}
+
+/* Navbar customizations */
+.navbar-sgr {
+  background-color: var(--sgr-dark) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.navbar-sgr .navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff !important;
+}
+.navbar-sgr .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.navbar-sgr .nav-link:hover, 
+.navbar-sgr .nav-link.active {
+  color: var(--sgr-green) !important;
+}
+
+/* Buttons */
+.btn-sgr-primary {
+  background-color: var(--sgr-dark);
+  color: #ffffff;
+  border: 1px solid var(--sgr-dark);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.btn-sgr-primary:hover {
+  background-color: var(--sgr-dark-accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-sgr-success {
+  background-color: var(--sgr-green);
+  color: #ffffff;
+  border: 1px solid var(--sgr-green);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.btn-sgr-success:hover {
+  background-color: var(--sgr-green-hover);
+  border-color: var(--sgr-green-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-sgr-outline-dark {
+  background-color: transparent;
+  color: var(--sgr-dark);
+  border: 2px solid var(--sgr-dark);
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.btn-sgr-outline-dark:hover {
+  background-color: var(--sgr-dark);
+  color: #ffffff;
+}
+
+/* Cards catalog styling */
+.sgr-card {
+  border: none;
+  border-radius: 12px;
+  background-color: var(--sgr-bg);
+  box-shadow: var(--sgr-card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.sgr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sgr-card-shadow-hover);
+}
+.sgr-card-img-container {
+  height: 240px;
+  position: relative;
+  background-color: #f1f5f9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sgr-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.sgr-card:hover .sgr-card-img {
+  transform: scale(1.08);
+}
+.sgr-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(var(--sgr-green-rgb), 0.9);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+.sgr-card-badge-out {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(220, 53, 69, 0.9);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.sgr-price-tag {
+  color: var(--sgr-green);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+/* Glassmorphism sidebar / general panels */
+.sgr-glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Auth Cards */
+.auth-container {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background: var(--sgr-bg);
+  border-radius: 16px;
+  border: 1px solid var(--sgr-border);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem;
+}
+
+/* Hero Section */
+.sgr-hero {
+  background: linear-gradient(135deg, var(--sgr-dark) 0%, var(--sgr-dark-accent) 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 3.5rem 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.sgr-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(var(--sgr-green-rgb), 0.15);
+  filter: blur(50px);
+}
+
+/* Sidebar Offcanvas Cart */
+.offcanvas-sgr {
+  width: 400px !important;
+  border-left: 1px solid var(--sgr-border);
+}
+.offcanvas-sgr .offcanvas-header {
+  background-color: var(--sgr-dark);
+  color: #ffffff;
+}
+.offcanvas-sgr .offcanvas-header .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Admin Dashboard styles */
+.admin-card-stat {
+  border-radius: 12px;
+  border: none;
+  background-color: var(--sgr-bg);
+  box-shadow: var(--sgr-card-shadow);
+  border-left: 5px solid var(--sgr-dark);
+}
+.admin-card-stat.stat-green {
+  border-left-color: var(--sgr-green);
+}
+.admin-table-container {
+  background-color: var(--sgr-bg);
+  border-radius: 12px;
+  box-shadow: var(--sgr-card-shadow);
+  overflow: hidden;
+}
+.admin-table th {
+  background-color: var(--sgr-dark);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
